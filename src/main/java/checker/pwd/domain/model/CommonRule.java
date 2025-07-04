@@ -23,6 +23,7 @@ public class CommonRule implements Testing {
     public CompletableFuture<String> ruleApply(String password, Map<String, String> holder) {
         return CompletableFuture.supplyAsync(() -> {
             try {
+                printer.printDash();
                 printer.printData("COMMON check started for " + password + " successfully...");
                 List<String> segments = segmentation(password);
                 Thread.sleep(this.getClass().getAnnotation(RuleMeta.class).waitTime());
@@ -39,6 +40,7 @@ public class CommonRule implements Testing {
             } catch (InterruptedException e) {
                 holder.put("ERROR in Common ", e.getLocalizedMessage());
             } finally {
+                printer.printDash();
                 printer.printData("COMMON check ended for " + password + " successfully...");
                 printer.mapData(holder);
             }

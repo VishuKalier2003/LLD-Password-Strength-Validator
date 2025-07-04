@@ -21,6 +21,7 @@ public class VarietyRule implements Testing {
     public CompletableFuture<String> ruleApply(String password, Map<String, String> holder) {
         return CompletableFuture.supplyAsync(() -> {
             try {
+                printer.printDash();
                 printer.printData("VARIETY check started for "+password+" successfully...");
                 boolean flag[] = new boolean[4];
                 int n = password.length();
@@ -49,6 +50,7 @@ public class VarietyRule implements Testing {
             } catch (InterruptedException e) {
                 holder.put("ERROR in Variety", e.getLocalizedMessage());
             } finally {
+                printer.printDash();
                 printer.printData("VARIEY check ended for "+password+" successfully...");
                 printer.mapData(holder);
             }

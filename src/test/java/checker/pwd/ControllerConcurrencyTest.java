@@ -30,9 +30,9 @@ class ControllerConcurrencyTest {
     void whenMultiplePasswordsSubmittedConcurrently_thenAllResponsesAreAccepted() {
         // Prepare three distinct test passwords
         List<String> passwords = List.of(
-            "weak",                        // expect "Weak"
-            "MediumLen",                   // expect "Medium"
-            "AVeryLongSecurePassword123!"  // expect "High"
+            "TestPassword123",                        // expect "Weak"
+            "pass12",                   // expect "Medium"
+            "@a1~dfG4819CfraqZXPl17"  // expect "High"
         );
 
         // Fire off one POST per password, all in parallel

@@ -20,6 +20,7 @@ public class LengthRule implements Testing {
     public CompletableFuture<String> ruleApply(String password, Map<String, String> holder) {
         return CompletableFuture.supplyAsync(() -> {
             try {
+                printer.printDash();
                 printer.printData("LENGTH check started for "+password+" successfully...");
                 Thread.sleep(this.getClass().getAnnotation(RuleMeta.class).waitTime());
                 int k = password.length();
@@ -33,6 +34,7 @@ public class LengthRule implements Testing {
             } catch(InterruptedException e) {
                 holder.put("ERROR", e.getLocalizedMessage());
             } finally {
+                printer.printDash();
                 printer.printData("LENGTH check ended for "+password+" successfully...");
                 printer.printData("Holder");
                 printer.mapData(holder);

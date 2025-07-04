@@ -24,6 +24,7 @@ public class ValidatorChain {
         return chain.stream().
         // sorting on basis of order value provided in RuleMeta annotation (ascending order)
         sorted(Comparator.comparingInt(rule -> {
+            // lambda expression for ordering rule on the basis of annotation's order value
             RuleMeta mt = rule.getClass().getAnnotation(RuleMeta.class);
             return mt.order();
         })).toList();
